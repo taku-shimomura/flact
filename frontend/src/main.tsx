@@ -10,6 +10,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router";
 import { App } from "./App";
 import { Counter } from "./apps/counter/Counter";
+import { Todo } from "./apps/todo/Todo";
 
 const elem = document.getElementById("root")!;
 const app = (
@@ -18,6 +19,7 @@ const app = (
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/counter/" element={<Counter />} />
+        <Route path="/todo/" element={<Todo />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

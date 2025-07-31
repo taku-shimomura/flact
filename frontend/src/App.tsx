@@ -7,6 +7,7 @@ export function App() {
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/counter">Counter</a></li>
+        <li><a href="/todo">ToDo</a></li>
       </ul>
     </div>
   );
