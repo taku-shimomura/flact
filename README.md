@@ -1,0 +1,3 @@
+# fastact
+
+バックエンドをPythonのFastAPI、フロントエンドをTypeScriptのReactで作成するWebアプリケーションです。
