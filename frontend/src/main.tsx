@@ -9,8 +9,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router";
 import { App } from "./App";
-import { Counter } from "./apps/counter/Counter";
-import { SimpleMemo } from "./apps/simple_memo/SimpleMemo";
+import { Sample } from "./apps/sample/Sample";
 
 const elem = document.getElementById("root")!;
 const app = (
@@ -18,8 +17,7 @@ const app = (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/counter/" element={<Counter />} />
-        <Route path="/simple_memo/" element={<SimpleMemo />} />
+        <Route path="/sample/" element={<Sample />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

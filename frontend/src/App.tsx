@@ -6,8 +6,7 @@ export function App() {
       <h1>Bun + React</h1>
       <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/counter">Counter</a></li>
-        <li><a href="/simple_memo">Simple Memo</a></li>
+        <li><a href="/sample">Sample</a></li>
       </ul>
     </div>
   );
