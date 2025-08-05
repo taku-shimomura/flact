@@ -1,3 +1,8 @@
+# やること
+
+- [ ] ポモドーロタイマー
+- [ ] ToDo
+
 # bun-react-template
 
 To install dependencies:
