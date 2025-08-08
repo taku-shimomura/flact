@@ -3,10 +3,11 @@ import "./index.css";
 export function App() {
   return (
     <div>
-      <h1>Bun + React</h1>
+      <h1>アプリケーションリスト</h1>
       <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/counter">Counter</a></li>
+        <li><a href="/todo">Todo</a></li>
+        <li><a href="/pomodoro_timer">Pomodoro Timer</a></li>
       </ul>
     </div>
   );

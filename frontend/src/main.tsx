@@ -9,7 +9,8 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router";
 import { App } from "./App";
-import { Counter } from "./Counter";
+import { Todo } from "./pages/todo/Todo";
+import { PomodoroTimer } from "./pages/pomodoro_timer/PomodoroTimer";
 
 const elem = document.getElementById("root")!;
 const app = (
@@ -17,7 +18,8 @@ const app = (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/counter" element={<Counter />} />
+        <Route path="/todo/" element={<Todo />} />
+        <Route path="/pomodoro_timer/" element={<PomodoroTimer />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
