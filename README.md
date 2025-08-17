@@ -1,3 +1,3 @@
-# fastact
+# flact
 
-バックエンドをPythonのFastAPI、フロントエンドをTypeScriptのReactで作成するWebアプリケーションです。
+バックエンドをPythonのFlask、フロントエンドをReactで作成しているWebアプリケーションです。
