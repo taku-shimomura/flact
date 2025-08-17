@@ -6,8 +6,9 @@ authors = [
     { name = "Taku", email = "23535528+taku-shimomura@users.noreply.github.com" }
 ]
 dependencies = [
-    "fastapi>=0.116.1",
-    "uvicorn>=0.35.0",
+    "flask>=3.1.1",
+    "flask-sqlalchemy>=3.1.1",
+    "flask-cors>=6.0.1",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"

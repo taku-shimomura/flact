@@ -1,5 +1,5 @@
-run: ## バックエンド(FastAPI)サーバーを起動します
-	rye run uvicorn backend.main:app --reload
+run: ## サーバーを起動します
+	rye run python3 -m backend --reload
 
 help: ## このヘルプを表示します
 	@grep -E '^[a-zA-Z0-9_-]+:.*?## ' \$(MAKEFILE_LIST) \
