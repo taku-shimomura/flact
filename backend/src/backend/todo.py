@@ -1,4 +1,4 @@
-from flask import Blueprint, Flask, jsonify
+from flask import Blueprint, Flask, jsonify, request
 from flask_cors import CORS
 
 from . import extensions
@@ -25,6 +25,39 @@ class Todo(db.Model):
 
 
 @bp.route("/", methods=["GET"])
-def todos():
-    todos = Todo.query.all()
+def get_todos():
+    todos = db.session.execute(db.select(Todo)).scalars()
     return jsonify([todo.to_dict() for todo in todos])
+
+
+@bp.route("/<int:id>", methods=["GET"])
+def get_todo(id):
+    todo = db.get_or_404(Todo, id)
+    return jsonify(todo.to_dict())
+
+
+@bp.route("/", methods=["POST"])
+def create_todo():
+    data = request.get_json()
+    todo = Todo(task=data["task"], done=data.get("done", False))
+    db.session.add(todo)
+    db.session.commit()
+    return jsonify(todo.to_dict()), 201
+
+
+@bp.route("/<int:id>", methods=["PUT"])
+def update_todo(id):
+    todo = db.get_or_404(Todo, id)
+    data = request.get_json()
+    todo.task = data.get("task", todo.task)
+    todo.done = data.get("done", todo.done)
+    db.session.commit()
+    return jsonify(todo.to_dict())
+
+
+@bp.route("/<int:id>", methods=["DELETE"])
+def delete_todo(id):
+    todo = db.get_or_404(Todo, id)
+    db.session.delete(todo)
+    db.session.commit()
+    return "", 204
