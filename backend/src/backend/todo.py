@@ -39,7 +39,7 @@ def get_todo(id):
 @bp.route("/", methods=["POST"])
 def create_todo():
     data = request.get_json()
-    todo = Todo(task=data["task"], done=data.get("done", False))
+    todo = Todo(task=data["task"], done=data.get("done", False))  # type: ignore
     db.session.add(todo)
     db.session.commit()
     return jsonify(todo.to_dict()), 201
