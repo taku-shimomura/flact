@@ -1,5 +1,5 @@
 from flask import Blueprint, Flask, jsonify, request
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 
 from . import extensions
 
@@ -25,18 +25,21 @@ class Todo(db.Model):
 
 
 @bp.route("/", methods=["GET"])
+@cross_origin()
 def get_todos():
     todos = db.session.execute(db.select(Todo)).scalars()
     return jsonify([todo.to_dict() for todo in todos])
 
 
 @bp.route("/<int:id>", methods=["GET"])
+@cross_origin()
 def get_todo(id):
     todo = db.get_or_404(Todo, id)
     return jsonify(todo.to_dict())
 
 
 @bp.route("/", methods=["POST"])
+@cross_origin()
 def create_todo():
     data = request.get_json()
     todo = Todo(task=data["task"], done=data.get("done", False))  # type: ignore
@@ -46,6 +49,7 @@ def create_todo():
 
 
 @bp.route("/<int:id>", methods=["PUT"])
+@cross_origin()
 def update_todo(id):
     todo = db.get_or_404(Todo, id)
     data = request.get_json()
@@ -56,6 +60,7 @@ def update_todo(id):
 
 
 @bp.route("/<int:id>", methods=["DELETE"])
+@cross_origin()
 def delete_todo(id):
     todo = db.get_or_404(Todo, id)
     db.session.delete(todo)

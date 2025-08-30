@@ -7,7 +7,7 @@ export function Todo() {
   useEffect(() => {
     const get_todo = async () => {
       try {
-        const res = await fetch('http://localhost:8000/api/todos');
+        const res = await fetch('http://localhost:3000/todo/');
         const data = await res.json();
         setTodos(data);
       } catch (err) {
